@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+//        maven { url "http://nexus.bilibili.co/content/repositories/central/" }
+//        maven { url "http://nexus.bilibili.co/content/repositories/gradle-plugins/" }
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+// 使用spring boot
+apply plugin: "org.springframework.boot"
+// 使用spring boot的自动依赖管理
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.project.my'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.11'
+
+allprojects {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis',version:'1.5.10.RELEASE'
+
+}
+
