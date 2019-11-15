@@ -21,7 +21,7 @@ public class RedisMessageSchedule {
     @Resource
     private StringRedisTemplate redisTemplate;
 
-    @Scheduled(fixedDelay = 3000)
+//    @Scheduled(fixedDelay = 3000)
     public void sendMessage(){
         redisTemplate.convertAndSend("test","result");
         redisTemplate.convertAndSend("test1","result1");
