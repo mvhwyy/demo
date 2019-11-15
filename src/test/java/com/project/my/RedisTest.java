@@ -1,13 +1,14 @@
 package com.project.my;
 
-import org.assertj.core.util.DateUtil;
 import org.junit.Test;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @ClassName RedisTest
@@ -18,12 +19,19 @@ import java.util.Date;
  */
 public class RedisTest {
 
+    @Resource
+    private RedisTemplate<String, String> redisTemplate;
+
     @Test
     public void test() {
-        JedisPool jedisPool = new JedisPool(new JedisPoolConfig(), "127.0.0.1", 6379);
-        Jedis jedis = jedisPool.getResource();
-        jedis.setex("key-expire-notice", 2, "过期key通知事件");
-        SimpleDateFormat df  =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        System.out.println(df.format(new Date())+"设置key过期");
+         String key = "redis:sort";
+        redisTemplate.opsForZSet().add(key,"java",99d);
+        redisTemplate.opsForZSet().add(key,"js",85d);
+        redisTemplate.opsForZSet().add(key,"php",60d);
+        redisTemplate.opsForZSet().add(key,"c",77d);
+
+        Set<ZSetOperations.TypedTuple<String>> set = redisTemplate.opsForZSet().rangeWithScores(key,0,1);
+        List<Double> scoreList = Objects.requireNonNull(set).stream().map(ZSetOperations.TypedTuple::getScore).collect(Collectors.toList());
+        System.out.println("scoreList:"+scoreList);
     }
 }
