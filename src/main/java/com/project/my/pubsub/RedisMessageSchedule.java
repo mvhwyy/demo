@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @Component
 public class RedisMessageSchedule {
 
-    @Resource
+    @Resource(name = "stringRedisTemplate")
     private StringRedisTemplate redisTemplate;
 
 //    @Scheduled(fixedDelay = 3000)

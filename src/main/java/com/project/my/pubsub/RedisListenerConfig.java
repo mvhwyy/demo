@@ -55,8 +55,8 @@ public class RedisListenerConfig {
      * @param connectionFactory 连接工厂
      * @return 初始化结果
      */
-    @Bean
-    StringRedisTemplate redisTemplate(RedisConnectionFactory connectionFactory){
+    @Bean(name = "stringRedisTemplate")
+    StringRedisTemplate stringRedisTemplate(RedisConnectionFactory connectionFactory){
         return new StringRedisTemplate(connectionFactory);
     }
 
