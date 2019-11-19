@@ -5,9 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * @ClassName DemoController
@@ -26,18 +23,5 @@ public class DemoController {
     @RequestMapping(value = "/retry")
     public void retry() {
         retryService.retry();
-    }
-
-    public static void main(String[] args) {
-        // 获取当月第一天和最后一天
-        SimpleDateFormat formatTemp = new SimpleDateFormat("yyyy-MM-dd");
-        String lastday;
-        // 获取当前月的最后一天
-        Calendar cale = Calendar.getInstance();
-        cale.add(Calendar.MONTH, 1);
-        cale.set(Calendar.DAY_OF_MONTH, 0);
-        lastday = formatTemp.format(cale.getTime());
-        System.out.println("lastday:"+lastday);
-        System.out.println(new Date().compareTo(cale.getTime()));
     }
 }
