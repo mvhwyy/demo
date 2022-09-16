@@ -1,4 +1,4 @@
-package com.project.my.keyexpirenotice;
+package com.project.my.module.keyexpirenotice;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;

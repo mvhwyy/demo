@@ -1,4 +1,4 @@
-package com.project.my.pubsub;
+package com.project.my.module.pubsub;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -45,5 +45,10 @@ dependencies {
     compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.1.0'
     compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.4.RELEASE'
     compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.4'
+    compile 'com.graphql-java:graphql-java-tools:5.2.4'
+    compile 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
+    compile 'org.mountcloud:graphql-client:1.2'
+
+    implementation group: 'com.alibaba.csp', name: 'sentinel-core', version: '1.8.3'
 }
 

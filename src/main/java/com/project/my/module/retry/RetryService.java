@@ -1,4 +1,4 @@
-package com.project.my.retry;
+package com.project.my.module.retry;
 
 import com.project.my.exception.BizException;
 import lombok.extern.slf4j.Slf4j;

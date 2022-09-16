@@ -1,4 +1,4 @@
-package com.project.my.sort;
+package com.project.my.module.sort;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;

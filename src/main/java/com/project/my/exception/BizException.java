@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @ClassName BizException
- * @Description TODO
+ * @Description 异常自定义
  * @Author mawei
  * @Date 2019/11/19 12:05 下午
  * @Version 1.0
